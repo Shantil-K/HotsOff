@@ -30,7 +30,8 @@ its network traffic. See [development/NOTES.md](development/NOTES.md).
 
 ## Status
 
-- **Development stage:** early / experimental, needs on-TV testing
+- **Development stage:** early / experimental
+- **Tested on:** LG C2, webOS 25 (rooted)
 - **Hotstar app:** 2.3.4 (store package 3.0.2), web bundle 26.10.16.0
 
 ## Requirements
