@@ -1,0 +1,210 @@
+/* Chromium 38-safe CSS: no vars, no grid, no gap, no clamp(). */
+
+html, body { height:100%;
+  font-size:30px; /* actual px set by JS scaling */
+ }
+body {
+  margin:0;
+  background:#000;
+  color:#fff;
+  font-family:Arial, sans-serif;
+}
+
+.safe {
+  height:100%;
+  box-sizing:border-box; /* padding set by JS for overscan-safe area */
+  padding: 20px;
+}
+
+.layout { width:100%; height:100%; overflow:hidden; }
+
+.rail {
+  float:left;
+  width:18rem;
+  height:100%;
+  background:#0f0f12;
+  border:0.0625rem solid #24242a;
+  border-radius:1rem;
+  box-sizing:border-box;
+  padding:1.3rem;
+}
+
+.brand img { display:block; margin:auto }
+
+.navbtn {
+  display:block;
+  width:100%;
+  text-align:center;
+  margin:.9rem 0;
+  padding:1rem .9rem;
+  font-size:1.1rem;
+  color:#fff;
+  background:#17171c;
+  border:0.0625rem solid #31313a;
+  border-radius:.85rem;
+  box-sizing:border-box;
+}
+
+.content {
+  float:right;
+  width:calc(100% - 19.5rem);
+  height:100%;
+  box-sizing:border-box;
+}
+
+.card {
+  height:100%;
+  background:#121214;
+  border:0.0625rem solid #2b2b30;
+  border-radius:1rem;
+  padding:1.4rem;
+  box-sizing:border-box;
+}
+
+.h1 { font-size:1.4rem; margin:0 0 .5rem; }
+.h2 { font-size:1.2rem; margin:1.1rem 0 .6rem; }
+.hint { font-size:.85rem; opacity:.7; margin:0 0 1rem; }
+
+.line { margin:1rem 0; overflow:hidden; }
+.k { float:left; opacity:.9; font-size: 1.5rem;}
+.v { float:right; margin-right:0.2rem; }
+
+.pill {
+  display:inline-block;
+  padding:.25rem .7rem;
+  border-radius:999rem;
+  border:0.0625rem solid #333;
+  font-size:.95rem;
+}
+.pill.running { background:#0f2b16; border-color:#1f5a30; }
+.pill.stopped { background:#2a220f; border-color:#6a5520; }
+.pill.error   { background:#2b0f14; border-color:#7a2633; }
+
+/* Slider-like toggle */
+.switch {
+  position:relative;
+  width:4.2rem;
+  height:2rem;
+  border-radius:999rem;
+  border:0.0625rem solid #34343c;
+  background:#1a1a1f;
+  padding:0;
+  margin:0.5rem;
+}
+.switch .knob {
+  position:absolute;
+  top:.1rem;
+  left:.2rem;
+  width:1.7rem;
+  height:1.7rem;
+  border-radius:999rem;
+  background:#fff;
+}
+.switch.on { background:#155a15; border-color:#4a4a57; }
+.switch.on .knob { left:2.25rem; }
+.switch.mixed { background:#747474; border-color:#4a4a57; }
+.switch.mixed .knob { left:1.1rem; }
+.switch:focus { 
+  box-shadow: 0 0 0 0.18rem #1492ff;
+  outline-color: transparent;
+  transition: .1s;
+}
+.switchdesc {margin-top: 0.5rem}
+
+.btn {
+  display:block;
+  width:100%;
+  margin:.8rem 0;
+  padding:1rem;
+  font-size:1.15rem;
+  color:#fff;
+  background:#1a1a1f;
+  border:0.0625rem solid #34343c;
+  border-radius:.85rem;
+  text-align:left;
+  box-sizing:border-box;
+}
+.btn.primary { background:#23232b; border-color:#4a4a57; }
+.btn.danger  { background:#2b1216; border-color:#7a2633; }
+
+.navbtn:focus, .btn:focus, textarea:focus {
+  box-shadow: 0 0 0 0.18rem #1492ff;
+  outline-color: transparent;
+  transition: .1s;
+}
+
+textarea.scrollmode:focus {
+  box-shadow: 0 0 0 0.18rem #0080ff;
+}
+
+.actions { margin-top:1rem; }
+
+textarea {
+  width:100%;
+  height:11rem;
+  resize:none;
+  padding:.8rem;
+  box-sizing:border-box;
+  font-size:.85rem;
+  background:#0f0f12;
+  color:#fff;
+  border:0.0625rem solid #34343c;
+  border-radius:.85rem;
+}
+
+.hidden { display:none; }
+
+/* Help modal */
+.shade {
+  position:fixed; left:0; top:0; right:0; bottom:0;
+  background:rgba(0,0,0,.72);
+}
+.popup {
+  position:fixed;
+  left:50%; top:50%;
+  width:34rem;
+  margin-left:-17rem;
+  margin-top:-12rem;
+  background:#121214;
+  border:0.0625rem solid #34343c;
+  border-radius:1rem;
+  padding:1.2rem;
+  box-sizing:border-box;
+  text-align:center;
+}
+.popTitle { font-size:1.25rem; margin-bottom:.8rem; }
+#qr { width:12rem; height:12rem; background:#fff; border-radius:.6rem; }
+.url { margin-top:.7rem; font-size:.85rem; opacity:.9; word-break:normal; text-align:left; line-height:1.5; }
+.popup .btn { text-align:center; margin-top:1rem; }
+
+/* Loading overlay */
+.loading {
+  position:fixed; left:0; top:0; right:0; bottom:0;
+  background:rgba(0,0,0,.72);
+}
+.loadCard {
+  position:fixed;
+  left:50%; top:50%;
+  width:22rem;
+  margin-left:-11rem;
+  margin-top:-4.5rem;
+  background:#121214;
+  border:0.0625rem solid #34343c;
+  border-radius:1rem;
+  padding:1.2rem;
+  box-sizing:border-box;
+  text-align:center;
+}
+.spinner {
+  width:2.6rem;
+  height:2.6rem;
+  margin:0 auto .8rem;
+  border-radius:999rem;
+  border:0.22rem solid #444;
+  border-top-color:#fff;
+  -webkit-animation:spin 0.9s linear infinite;
+  animation:spin 0.9s linear infinite;
+}
+@-webkit-keyframes spin { to { -webkit-transform:rotate(360deg); } }
+@keyframes spin { to { transform:rotate(360deg); } }
+.loadText { font-size:1rem; opacity:.95; }

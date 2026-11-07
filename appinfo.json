@@ -1,0 +1,11 @@
+{
+  "id": "com.hotsoff.patcher",
+  "version": "0.2.0",
+  "vendor": "hotsoff",
+  "type": "web",
+  "main": "index.html",
+  "title": "HotsOff",
+  "icon": "hotsoff.png",
+  "largeIcon": "hotsoffLarge.png",
+  "iconColor": "#0c1a3a"
+}

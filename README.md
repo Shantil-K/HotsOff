@@ -1,0 +1,83 @@
+# HotsOff
+
+> Patch-based ad-block layer for the stock Hotstar app on rooted LG webOS TVs.
+> A sister project of [AmazOff](https://github.com/azoffshowy/AmazOff).
+
+## Overview
+
+**HotsOff** is an IPK application for **rooted LG webOS TVs**. It patches the
+installed Hotstar app:
+
+- Remove live / match ads (requests the clean, non ad-stitched SSAI stream)
+- Remove VOD pre-rolls, mid-rolls and the ads shown under the player when paused
+- Remove the "Upgrade" / "Subscribe" button next to the Hotstar logo and subscription nudges
+- Remove display / banner ad widgets on the home feed
+- Suppress third-party telemetry (Coralogix, Google Tag Manager, Moat, Firebase logging)
+
+Because the stock app itself is patched, every launch path, including deep links
+and the launcher tile, opens the ad-free version.
+
+HotsOff requires **[Homebrew Channel](https://www.webosbrew.org/)** to be present and functional.
+
+## How it works
+
+The Hotstar webOS app is a thin launcher for `livingroom.hotstar.com`. HotsOff
+places a WebAppManager user script (`webOSUserScripts/userScript.js`) in the
+installed Hotstar app folder. It runs inside the Hotstar web app and rewrites
+its network traffic. See [development/NOTES.md](development/NOTES.md).
+
+## Status
+
+- **Development stage:** early / experimental, needs on-TV testing
+- **Hotstar app:** 2.3.4 (store package 3.0.2), web bundle 26.10.16.0
+
+## Requirements
+
+- Rooted LG webOS TV
+- [Homebrew Channel](https://www.webosbrew.org/)
+- Stock Hotstar app installed
+
+## Installation
+
+Install the `.ipk` using **[Device Manager for webOS](https://github.com/webosbrew/dev-manager-desktop)**.
+
+## Usage
+
+1. Launch **HotsOff**
+2. Press **Start Service** (installs the patch and closes Hotstar if it was running)
+3. **Recommended:** enable **Autostart** – the patch is re-applied at every boot,
+   which matters because Hotstar updates replace the app folder
+4. **Launch Hotstar**
+
+Notes:
+- A **"HotsOff loaded"** toast confirms the patch when Hotstar starts.
+- **Stop Service** removes the user script and the hosts entries again.
+- Problems? Check the **Details** page log.
+
+## Building
+
+```
+npm install -g @webos-tools/cli
+node tests/userScript.test.js
+sh development/createPackage.sh
+```
+
+GitHub Actions builds the IPK on every push and pull request (download it from the
+run's artifacts). Pushing a tag like `v0.2.0` that matches the version in `appinfo.json`
+publishes a GitHub release with the IPK attached.
+
+## License
+
+HotsOff is licensed under the **GNU General Public License v3.0**, see [LICENSE](LICENSE).
+
+## Credits & third-party licenses
+
+- HotsOff is derived from [AmazOff](https://github.com/azoffshowy/AmazOff) by azoffshowy.
+  The UI, service scripts and packaging are adapted from it under the MIT license;
+  the original notice is kept in [LICENSES/MIT-AmazOff.txt](LICENSES/MIT-AmazOff.txt).
+- `js/spatial_navigation.js`: [js-spatial-navigation](https://github.com/luke-chang/js-spatial-navigation)
+  by Luke Chang, MPL 2.0 (unmodified).
+- `js/webOSTVjs-1.2.10`: LG webOS TV library, Apache 2.0 (`js/webOSTVjs-1.2.10/LICENSE-2.0.txt`).
+- The ad-removal approach was informed by the Morphe Hotstar patches (GPL-3.0) by chiggi /
+  Paresh-Maheshwari. No code is copied from them; HotsOff is not affiliated with Morphe.
+- HotsOff is not affiliated with Hotstar. Hotstar is a trademark of its owner.

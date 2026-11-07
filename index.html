@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1920,height=1080,initial-scale=1">
+  <title>HotsOff</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <div id="safe" class="safe">
+    <div class="layout">
+      <div class="rail">
+        <button id="svcBtn" class="navbtn item" tabindex="0" type="button">Stop Service</button>
+        <button id="launchBtn" class="navbtn item" tabindex="0" type="button">Launch Hotstar</button>
+        <button id="detailsBtn" class="navbtn item" tabindex="0" type="button">Details</button>
+      </div>
+
+      <div class="content">
+        <div class="card">
+          <div class="brand">
+            <img src="assets/hotsoff_title.png" alt="">
+          </div>
+          <hr>
+          <div class="line">
+            <div class="k">Hotstar Patch (Ad-block)</div>
+            <div class="v"><span id="pill" class="pill running">RUNNING</span></div>
+          </div>
+
+          <div class="line">
+            <div class="k switchdesc">Autostart at boot</div>
+            <div class="v">
+              <button id="autoBtn" class="item switch on" tabindex="0" type="button" aria-pressed="true">
+                <span class="knob"></span>
+              </button>
+            </div>
+          </div>
+
+          <div id="details" class="hidden">
+            <div class="h2">Log info</div>
+            <textarea class="item" id="log" tabindex="0" placeholder="None" readonly></textarea>
+
+            <div class="actions">
+              <div class="line">
+                <div class="v"><button id="helpBtn" class="btn primary item" tabindex="0" type="button">Get
+                    Help</button></div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Help modal -->
+  <div id="helpLayer" class="hidden">
+    <div class="shade"></div>
+    <div class="popup" role="dialog" aria-modal="true">
+      <div class="popTitle">Get Help</div>
+      <div class="url">1. Press <b>Start Service</b> to install the patch.<br>
+        2. Launch Hotstar &ndash; a &ldquo;HotsOff loaded&rdquo; toast confirms it.<br>
+        3. Enable <b>Autostart</b> so the patch is re-applied after Hotstar updates.<br><br>
+        Problems? Open <b>Details</b>, copy the log and report it to the HotsOff project.</div>
+      <button id="closeBtn" class="btn item" tabindex="0" type="button">Close</button>
+    </div>
+  </div>
+
+  <!-- Loading overlay -->
+  <div id="loading" class="loading hidden" aria-live="polite">
+    <div class="loadCard">
+      <div class="spinner" aria-hidden="true"></div>
+      <div id="loadText" class="loadText">Starting…</div>
+    </div>
+  </div>
+
+  <script src="js/webOSTVjs-1.2.10/webOSTV.js"></script>
+  <script src="js/spatial_navigation.js"></script>
+  <script src="js/app.core.js"></script>
+  <script src="js/app.nav.js"></script>
+  <script>
+    // init
+    window.addEventListener("load", function () {
+      bindUi();
+      boot();
+    });
+  </script>
+</body>
+
+</html>

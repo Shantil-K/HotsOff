@@ -1,0 +1,17 @@
+# Third-party telemetry used by livingroom.hotstar.com.
+# Only analytics / ad-measurement hosts: never add Hotstar API or CDN hosts here.
+0.0.0.0 cdn.rum-ingress-coralogix.com
+0.0.0.0 ingress.ap1.rum-ingress-coralogix.com
+0.0.0.0 ingress.ap2.rum-ingress-coralogix.com
+0.0.0.0 ingress.ap3.rum-ingress-coralogix.com
+0.0.0.0 ingress.eu1.rum-ingress-coralogix.com
+0.0.0.0 ingress.eu2.rum-ingress-coralogix.com
+0.0.0.0 ingress.us1.rum-ingress-coralogix.com
+0.0.0.0 ingress.us2.rum-ingress-coralogix.com
+0.0.0.0 api.coralogix.com
+0.0.0.0 www.googletagmanager.com
+0.0.0.0 www.google-analytics.com
+0.0.0.0 z.moatads.com
+0.0.0.0 firebaselogging.googleapis.com
+0.0.0.0 firebaselogging-pa.googleapis.com
+0.0.0.0 hspx.hotstar.com
