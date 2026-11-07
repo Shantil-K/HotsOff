@@ -5,5 +5,5 @@ set -e
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 OUT="${1:-$ROOT/..}"
 chmod 755 "$ROOT"/tools/*.sh "$ROOT"/tools/lib/*.sh
-ares-package -o "$OUT" -e "*README.md" -e "*development/*" -e "*tests/*" -e "*.github/*" -e "*.git/*" "$ROOT"
+ares-package -o "$OUT" -e "*README.md" -e "*Screenshot.png" -e "*development/*" -e "*tests/*" -e "*.github/*" -e "*.git/*" "$ROOT"
 sha256sum "$OUT"/com.hotsoff.patcher_*.ipk
